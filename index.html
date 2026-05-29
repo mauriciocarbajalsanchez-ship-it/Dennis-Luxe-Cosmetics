@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glow Studio | Tienda de Maquillaje</title>
+    <style>
+        /* 1. CONFIGURACIÓN GENERAL Y PALETA DE COLORES */
+        :root {
+            --color-principal: #ffb7b2; /* Rosa pastel suave */
+            --color-oscuro: #2d2d2d;     /* Gris casi negro para textos */
+            --color-blanco: #ffffff;
+            --color-gris-claro: #f9f9f9;
+            --fuente-titulos: 'Playfair Display', serif;
+            --fuente-texto: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--fuente-texto), sans-serif;
+            color: var(--color-oscuro);
+            background-color: var(--color-gris-claro);
+            line-height: 1.6;
+        }
+
+        /* 2. ENCABEZADO Y NAVEGACIÓN */
+        header {
+            background-color: var(--color-blanco);
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: var(--color-oscuro);
+        }
+
+        .logo span {
+            color: #e5989b;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-oscuro);
+            margin-left: 2rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #e5989b;
+        }
+
+        /* 3. SECCIÓN HERO (BIENVENIDA) */
+        .hero {
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--color-oscuro);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        .btn-principal {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: background-color 0.3s;
+        }
+
+        .btn-principal:hover {
+            background-color: #e5989b;
+        }
+
+        /* 4. SECCIÓN DE PRODUCTOS (GRID) */
+        .contenedor-productos {
+            padding: 4rem 10%;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .titulo-seccion::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--color-principal);
+            margin: 10px auto 0 auto;
+        }
+
+        .grid-productos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .tarjeta-producto {
+            background-color: var(--color-blanco);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+            padding-bottom: 1.5rem;
+        }
+
+        .tarjeta-producto:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .tarjeta-producto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .categoria {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-top: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .nombre-producto {
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+            color: var(--color-oscuro);
+        }
+
+        .precio {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #e5989b;
+            margin-bottom: 1rem;
+        }
+
+        .btn-carrito {
+            background-color: transparent;
+            border: 2px solid var(--color-oscuro);
+            color: var(--color-oscuro);
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-carrito:hover {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+        }
+
+        /* 5. PIE DE PÁGINA (FOOTER) */
+        footer {
+            background-color: var(--color-oscuro);
+            color: var(--color-blanco);
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- MENÚ DE NAVEGACIÓN -->
+    <header>
+        <div class="logo">GLOW<span>STUDIO</span></div>
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#">Productos</a>
+            <a href="#">Nosotros</a>
+            <a href="#">Contacto</a>
+        </nav>
+    </header>
+
+    <!-- BIENVENIDA / HERO -->
+    <section class="hero">
+        <h1>Resalta tu belleza natural</h1>
+        <p>Explora nuestra nueva colección de maquillaje cruelty-free y de larga duración diseñada para brillar todos los días.</p>
+        <a href="#" class="btn-principal">Ver Catálogo</a>
+    </section>
+
+    <!-- SECCIÓN DE PRODUCTOS -->
+    <main class="contenedor-productos">
+        <h2 class="titulo-seccion">Nuestros Favoritos</h2>
+        
+        <div class="grid-productos">
+            <!-- Producto 1 -->
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1631730359575-38e4755d772b?auto=format&fit=crop&w=400&q=80" alt="Labial Matte">
+                <p class="categoria">Labios</p>
+                <h3 class="nombre-producto">Labial Velvet Matte</h3>
+                <p class="precio">$18.99</p>
+                <button class="btn-carrito">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 2 -->
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=400&q=80" alt="Base de Maquillaje">
+                <p class="categoria">Rostro</p>
+                <h3 class="nombre-producto">Base Liquid Glow</h3>
+                <p class="precio">$24.50</p>
+                <button class="btn-carrito">Añadir al carrito</button>
+            </div>
+
+            <!-- Producto 3 -->
+            <div class="tarjeta-producto">
+                <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=400&q=80" alt="Paleta de Sombras">
+                <p class="categoria">Ojos</p>
+                <h3 class="nombre-producto">Paleta Nude Nectar</h3>
+                <p class="precio">$32.00</p>
+                <button class="btn-carrito">Añadir al carrito</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer>
+        <p>&copy; 2026 Glow Studio. Todos los derechos reservados. Diseñado para amantes del maquillaje.</p>
+    </footer>
+
+</body>
+</html>
